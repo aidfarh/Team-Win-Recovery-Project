@@ -49,6 +49,8 @@
 #include "ddftw.h"
 #include "backstore.h"
 
+struct selabel_handle *sehandle = NULL;
+
 int notError;
 
 int gui_init(void);

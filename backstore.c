@@ -871,6 +871,9 @@ int tw_backup(struct dInfo bMnt, const char *bDir)
 		unsigned long long total_bsize = 0;
 		ui_print("Breaking backup file into multiple archives...\nGenerating file lists\n");
 		strcpy(str, "/");
+		if (strcmp(bMnt.mnt,".android_secure") == 0) {
+		    strcat(str, "sdcard/");
+		}
 		strcat(str, bMnt.mnt);
 		int backup_count = make_file_list(str);
 		if (backup_count < 1) {
