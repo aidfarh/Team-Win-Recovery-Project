@@ -195,6 +195,8 @@ int twrpTar::Generate_Multiple_Archives(string Path) {
 
 	if (has_data_media == 1 && Path.size() >= 11 && strncmp(Path.c_str(), "/data/media", 11) == 0)
 		return 0; // Skip /data/media
+	if (has_data_media == 1 && Path.size() >= 16 && strncmp(Path.c_str(), "/data/lost+found", 16) == 0)
+		return 0; // Skip /data/lost+found
 	LOGINFO("Path: '%s', archive filename: '%s'\n", Path.c_str(), tarfn.c_str());
 
 	d = opendir(Path.c_str());
@@ -212,6 +214,8 @@ int twrpTar::Generate_Multiple_Archives(string Path) {
 			continue; // Skip /data/media
 		if (de->d_type == DT_BLK || de->d_type == DT_CHR)
 			continue;
+		if (FileName.size() >= 16 && strncmp(FileName.c_str(), "/data/lost+found", 16) == 0)
+			continue; // Skip /data/lost+found
 		if (de->d_type == DT_DIR && strcmp(de->d_name, ".") != 0 && strcmp(de->d_name, "..") != 0)
 		{
 			unsigned long long folder_size = TWFunc::Get_Folder_Size(FileName, false);
