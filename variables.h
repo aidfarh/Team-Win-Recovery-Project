@@ -164,8 +164,8 @@
 //   tw_sp2_is_mountable
 //   tw_sp3_is_mountable
 
-// Max archive size for tar backups before we split (1.5GB)
-#define MAX_ARCHIVE_SIZE 1610612736LLU
+// Max archive size for tar backups before we split (1.8GB)
+#define MAX_ARCHIVE_SIZE 1932735283LLU
 
 #ifndef CUSTOM_LUN_FILE
 #define CUSTOM_LUN_FILE "/sys/devices/platform/usb_mass_storage/lun%d/file"
