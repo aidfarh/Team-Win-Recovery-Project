@@ -1255,7 +1255,7 @@ bool TWPartition::Wipe_EXT4() {
 	if (!UnMount(true))
 		return false;
 
-	if (TWFunc::Path_Exists("/sbin/make_ext4fs")) {
+	if (0) { // (TWFunc::Path_Exists("/sbin/make_ext4fs")) {
 		string Command, result;
 
 		gui_print("Formatting %s using make_ext4fs...\n", Display_Name.c_str());
