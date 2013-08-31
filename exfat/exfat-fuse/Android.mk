@@ -13,7 +13,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH) \
 					external/fuse/include \
 					external/fuse/android
 LOCAL_SHARED_LIBRARIES += libz libc libexfat libdl 
-LOCAL_STATIC_LIBRARIES += libfuse
+LOCAL_STATIC_LIBRARIES += libfusetwrp
 
 include $(BUILD_EXECUTABLE)
 
