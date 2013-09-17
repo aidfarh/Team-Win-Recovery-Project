@@ -33,11 +33,10 @@
 #include "edify/expr.h"
 #include "mincrypt/sha.h"
 #include "minzip/DirUtil.h"
-#include "mtdutils/mounts.h"
+#include "mounts.h"
 #include "mtdutils/mtdutils.h"
 #include "updater.h"
 #include "applypatch/applypatch.h"
-#include "flashutils/flashutils.h"
 
 #ifdef USE_EXT4
 #include "make_ext4fs.h"
@@ -735,12 +734,11 @@ Value* WriteRawImageFn(const char* name, State* state, int argc, Expr* argv[]) {
         return NULL;
     }
 
-    char* partition = NULL;
     if (partition_value->type != VAL_STRING) {
         ErrorAbort(state, "partition argument to %s must be string", name);
         goto done;
     }
-    partition = partition_value->data;
+    char* partition = partition_value->data;
     if (strlen(partition) == 0) {
         ErrorAbort(state, "partition argument to %s can't be empty", name);
         goto done;
